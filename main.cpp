@@ -70,7 +70,9 @@ int main(int argc, char *argv[])
 			tempArchive.loadFromFile_TransferToMaxProblem(otherFilename);
 
 			for (list<solution>::iterator itSol = tempArchive.solList.begin(); itSol != tempArchive.solList.end(); itSol++) {
-				result.updateArchive(*itSol);
+				if (!result.judgeBeDomd_MaxCase(*itSol)) {
+					result.updateArchive(*itSol);
+				}
 			}
 		}
 
